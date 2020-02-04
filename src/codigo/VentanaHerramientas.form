@@ -29,7 +29,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="checkRelleno" max="32767" attributes="0"/>
+                  <Component id="checkRelleno" pref="116" max="32767" attributes="0"/>
                   <Component id="botonCirculo2" min="-2" pref="53" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="botonSpray" min="-2" pref="53" max="-2" attributes="0"/>
@@ -58,7 +58,7 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="botonPentagono" min="-2" pref="53" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="botonEstrella" min="-2" pref="53" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jSlider1" alignment="0" pref="0" max="32767" attributes="0"/>
@@ -98,7 +98,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="botonPentagono" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
-                  <Component id="botonEstrella" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
+                  <Component id="botonEstrella" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="botonCirculo2" min="-2" pref="53" max="-2" attributes="0"/>
@@ -113,41 +113,26 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JButton" name="botonCuadrado">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Cuadrado"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonCuadradoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botonPentagono">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Pent&#xe1;gono"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonPentagonoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botonEstrella">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Estrella"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonEstrellaActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botonCirculo2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="C&#xed;rculo"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonCirculo2ActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botonTriangulo">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Tri&#xe1;ngulo"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonTrianguloActionPerformed"/>
       </Events>
@@ -164,17 +149,11 @@
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botonPincel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="pincel"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonPincelActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botonGoma">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Goma "/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonGomaActionPerformed"/>
       </Events>
@@ -190,49 +169,31 @@
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botonTiraLineas">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="TiraL&#xed;neas"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonTiraLineasActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botonSpray">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Spray"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonSprayActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botonPipeta">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Pipeta"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonPipetaActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botonRectanguloLibre">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Rect&#xe1;ngulo Libre"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonRectanguloLibreActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botonPluma">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Pluma"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonPlumaActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botonCubo">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Cubo"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonCuboActionPerformed"/>
       </Events>

@@ -31,9 +31,7 @@ public class VentanaHerramientas extends javax.swing.JPanel {
     
     //Invisibiliza el botónde detrás y pone el icono
     public void afinaIcono(ImageIcon _miImagen, JButton _boton ){
-        _boton.setOpaque(false);
-        _boton.setContentAreaFilled(false);
-        _boton.setBorderPainted(false);
+        
         //Cargo la imagen en el jButton 
         _boton.setIcon(_miImagen);
     }
@@ -43,7 +41,8 @@ public class VentanaHerramientas extends javax.swing.JPanel {
         //Boton pincel
         ImageIcon miImagen = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/picel3.png"))
                 .getImage()
-                .getScaledInstance(53, 53, Image.SCALE_DEFAULT)));
+                .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+        setBounds(10, 10, 10, 10);
 
         afinaIcono(miImagen, botonPincel);
 
@@ -51,7 +50,8 @@ public class VentanaHerramientas extends javax.swing.JPanel {
         //BotonGoma
         ImageIcon miImagen2 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/goma6.png"))
                 .getImage()
-                .getScaledInstance(53, 53, Image.SCALE_DEFAULT)));
+                .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+        setBounds(10, 10, 10, 10);
 
         afinaIcono(miImagen2, botonGoma);
         
@@ -59,83 +59,83 @@ public class VentanaHerramientas extends javax.swing.JPanel {
         //BotonSpray
         ImageIcon miImagen3 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/spray2.png"))
                 .getImage()
-                .getScaledInstance(53, 53, Image.SCALE_DEFAULT)));
-
+                .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+        setBounds(10, 10, 10, 10);
         afinaIcono(miImagen3, botonSpray);
         
         //BotonPluma
         ImageIcon miImagen4 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/pluma2.png"))
                 .getImage()
-                .getScaledInstance(53, 53, Image.SCALE_DEFAULT)));
-
+                .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+        setBounds(10, 10, 10, 10);
         afinaIcono(miImagen4, botonPluma);
         
         //BotonPipeta
         ImageIcon miImagen5 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/pipeta.png"))
                 .getImage()
-                .getScaledInstance(53, 53, Image.SCALE_DEFAULT)));
-
+                .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+        setBounds(10, 10, 10, 10);
         afinaIcono(miImagen5, botonPipeta);
         
         
         //BotonCubo
         ImageIcon miImagen6 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/cubo2.png"))
                 .getImage()
-                .getScaledInstance(53, 53, Image.SCALE_DEFAULT)));
-
+                .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+        setBounds(10, 10, 10, 10);
         afinaIcono(miImagen6, botonCubo);
         
         
         //BotonTiraLineas
         ImageIcon miImagen7 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/linea.png"))
                 .getImage()
-                .getScaledInstance(53, 53, Image.SCALE_DEFAULT)));
-
+                .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+        setBounds(10, 10, 10, 10);
         afinaIcono(miImagen7, botonTiraLineas);
         
         
         //BotonRectanguloLibre
         ImageIcon miImagen8 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/rectangulo_1.png"))
                 .getImage()
-                .getScaledInstance(53, 53, Image.SCALE_DEFAULT)));
-
+                .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+        setBounds(10, 10, 10, 10);
         afinaIcono(miImagen8, botonRectanguloLibre);
         
         
         //Boton Triángulos
         ImageIcon miImagen9 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/triangle.png"))
                 .getImage()
-                .getScaledInstance(53, 53, Image.SCALE_DEFAULT)));
-
+                .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+        setBounds(10, 10, 10, 10);
         afinaIcono(miImagen9, botonTriangulo);
         
         //Boton cuadrado
         ImageIcon miImagen10 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/cuadrado.png"))
                 .getImage()
-                .getScaledInstance(53, 53, Image.SCALE_DEFAULT)));
-
+                .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+        setBounds(10, 10, 10, 10);
         afinaIcono(miImagen10, botonCuadrado);
         
         
         //Boton pentágono
         ImageIcon miImagen11 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/pentagon.png"))
                 .getImage()
-                .getScaledInstance(53, 53, Image.SCALE_DEFAULT)));
-
+                .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+        setBounds(10, 10, 10, 10);
         afinaIcono(miImagen11, botonPentagono);
         
         //Boton estrella
         ImageIcon miImagen12 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/estrella.png"))
                 .getImage()
-                .getScaledInstance(53, 53, Image.SCALE_DEFAULT)));
-
+                .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+        setBounds(10, 10, 10, 10);
         afinaIcono(miImagen12, botonEstrella);
         
         //Boton circulo
         ImageIcon miImagen13 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/circle.png"))
                 .getImage()
-                .getScaledInstance(53, 53, Image.SCALE_DEFAULT)));
-
+                .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+        setBounds(10, 10, 10, 10);
         afinaIcono(miImagen13, botonCirculo2);
     }
 
@@ -167,35 +167,30 @@ public class VentanaHerramientas extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        botonCuadrado.setText("Cuadrado");
         botonCuadrado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonCuadradoActionPerformed(evt);
             }
         });
 
-        botonPentagono.setText("Pentágono");
         botonPentagono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonPentagonoActionPerformed(evt);
             }
         });
 
-        botonEstrella.setText("Estrella");
         botonEstrella.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonEstrellaActionPerformed(evt);
             }
         });
 
-        botonCirculo2.setText("Círculo");
         botonCirculo2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonCirculo2ActionPerformed(evt);
             }
         });
 
-        botonTriangulo.setText("Triángulo");
         botonTriangulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonTrianguloActionPerformed(evt);
@@ -210,14 +205,12 @@ public class VentanaHerramientas extends javax.swing.JPanel {
             }
         });
 
-        botonPincel.setText("pincel");
         botonPincel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonPincelActionPerformed(evt);
             }
         });
 
-        botonGoma.setText("Goma ");
         botonGoma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonGomaActionPerformed(evt);
@@ -233,42 +226,36 @@ public class VentanaHerramientas extends javax.swing.JPanel {
             }
         });
 
-        botonTiraLineas.setText("TiraLíneas");
         botonTiraLineas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonTiraLineasActionPerformed(evt);
             }
         });
 
-        botonSpray.setText("Spray");
         botonSpray.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonSprayActionPerformed(evt);
             }
         });
 
-        botonPipeta.setText("Pipeta");
         botonPipeta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonPipetaActionPerformed(evt);
             }
         });
 
-        botonRectanguloLibre.setText("Rectángulo Libre");
         botonRectanguloLibre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonRectanguloLibreActionPerformed(evt);
             }
         });
 
-        botonPluma.setText("Pluma");
         botonPluma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonPlumaActionPerformed(evt);
             }
         });
 
-        botonCubo.setText("Cubo");
         botonCubo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonCuboActionPerformed(evt);
@@ -282,7 +269,7 @@ public class VentanaHerramientas extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(checkRelleno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(checkRelleno, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
                     .addComponent(botonCirculo2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(botonSpray, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -306,7 +293,7 @@ public class VentanaHerramientas extends javax.swing.JPanel {
                         .addComponent(botonCuadrado, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(botonPentagono, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(botonEstrella, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
