@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Nos permite crear el resto de formas
  */
 package codigo.formas;
 
@@ -12,7 +10,7 @@ import java.awt.Polygon;
 
 /**
  *
- * @author Javier
+ * Autores: Ramiro Diego, Sofía Rico, Javier de la Llave
  */
 public class Forma extends Polygon{
     public Color color;

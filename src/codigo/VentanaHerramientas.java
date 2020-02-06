@@ -2,6 +2,8 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
+ *
+ *Autores: Ramiro Diego, Sofia Rico, Javier de la Llave
  */
 package codigo;
 
@@ -16,8 +18,8 @@ import javax.swing.JButton;
 public class VentanaHerramientas extends javax.swing.JPanel {
 
     public boolean relleno = false;//Indica si la forma está rellena o no
-    public int formaElegida = 11;//indica la herramienta que usaremos, por defecto está el lápiz
-    int aux = formaElegida;//Guardaremos la herramienta para, tras usar la pipeta, volver a la herramienta
+    public int formaElegida = 11;//indica la herramienta que usaremos, por defecto es el lápiz
+    int aux = formaElegida;//Guardaremos la herramienta en uso para, tras usar la pipeta, volver a esa herramienta
     boolean goma = false; //Nos indica si estamos usando la goma
     int grosorLinea = 1;
     
@@ -32,19 +34,19 @@ public class VentanaHerramientas extends javax.swing.JPanel {
         poneIconos();
     }
     
-    //Invisibiliza el botónde detrás y pone el icono
-    public void afinaIcono(ImageIcon _miImagen, JButton _boton ){
-        
-        //Cargo la imagen en el jButton 
+    //Cargo la imagen en el jButton 
+    public void afinaIcono(ImageIcon _miImagen, JButton _boton ){      
         _boton.setIcon(_miImagen);
     }
     
     //Pone los iconos
     private void poneIconos() {
+        
         //Boton pincel
         ImageIcon miImagen = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/picel3.png"))
                 .getImage()
                 .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+        
         setBounds(10, 10, 10, 10);
 
         afinaIcono(miImagen, botonPincel);
@@ -54,6 +56,7 @@ public class VentanaHerramientas extends javax.swing.JPanel {
         ImageIcon miImagen2 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/goma6.png"))
                 .getImage()
                 .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+        
         setBounds(10, 10, 10, 10);
 
         afinaIcono(miImagen2, botonGoma);
@@ -63,21 +66,27 @@ public class VentanaHerramientas extends javax.swing.JPanel {
         ImageIcon miImagen3 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/spray2.png"))
                 .getImage()
                 .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+        
         setBounds(10, 10, 10, 10);
+        
         afinaIcono(miImagen3, botonSpray);
         
         //BotonPluma
         ImageIcon miImagen4 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/pluma2.png"))
                 .getImage()
                 .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+        
         setBounds(10, 10, 10, 10);
+        
         afinaIcono(miImagen4, botonPluma);
         
         //BotonPipeta
         ImageIcon miImagen5 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/pipeta.png"))
                 .getImage()
                 .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+        
         setBounds(10, 10, 10, 10);
+        
         afinaIcono(miImagen5, botonPipeta);
         
         
@@ -85,7 +94,9 @@ public class VentanaHerramientas extends javax.swing.JPanel {
         ImageIcon miImagen6 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/cubo2.png"))
                 .getImage()
                 .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+        
         setBounds(10, 10, 10, 10);
+        
         afinaIcono(miImagen6, botonCubo);
         
         
@@ -93,15 +104,19 @@ public class VentanaHerramientas extends javax.swing.JPanel {
         ImageIcon miImagen7 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/linea.png"))
                 .getImage()
                 .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
-        setBounds(10, 10, 10, 10);
-        afinaIcono(miImagen7, botonTiraLineas);
         
+        setBounds(10, 10, 10, 10);
+        
+        afinaIcono(miImagen7, botonTiraLineas);
+       
         
         //BotonRectanguloLibre
         ImageIcon miImagen8 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/rectangulo_1.png"))
                 .getImage()
                 .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+        
         setBounds(10, 10, 10, 10);
+        
         afinaIcono(miImagen8, botonRectanguloLibre);
         
         
@@ -109,14 +124,19 @@ public class VentanaHerramientas extends javax.swing.JPanel {
         ImageIcon miImagen9 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/triangle.png"))
                 .getImage()
                 .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+        
         setBounds(10, 10, 10, 10);
+        
         afinaIcono(miImagen9, botonTriangulo);
+        
         
         //Boton cuadrado
         ImageIcon miImagen10 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/cuadrado.png"))
                 .getImage()
                 .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+        
         setBounds(10, 10, 10, 10);
+        
         afinaIcono(miImagen10, botonCuadrado);
         
         
@@ -124,21 +144,28 @@ public class VentanaHerramientas extends javax.swing.JPanel {
         ImageIcon miImagen11 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/pentagon.png"))
                 .getImage()
                 .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+        
         setBounds(10, 10, 10, 10);
+        
         afinaIcono(miImagen11, botonPentagono);
+        
         
         //Boton estrella
         ImageIcon miImagen12 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/estrella.png"))
                 .getImage()
                 .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+        
         setBounds(10, 10, 10, 10);
+        
         afinaIcono(miImagen12, botonEstrella);
         
         //Boton circulo
         ImageIcon miImagen13 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/circle.png"))
                 .getImage()
                 .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+        
         setBounds(10, 10, 10, 10);
+        
         afinaIcono(miImagen13, botonCirculo2);
     }
 
@@ -371,13 +398,6 @@ public class VentanaHerramientas extends javax.swing.JPanel {
         formaElegida = 11;
         goma = false;
         aux = formaElegida;
-        
-        ImageIcon imagenRaton1 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/pinceli.png"))
-                .getImage()
-                .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
-        miPaint.personalizarCursor(imagenRaton1);
-        
-        
     }//GEN-LAST:event_botonPincelActionPerformed
 
     private void botonGomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGomaActionPerformed
@@ -385,8 +405,6 @@ public class VentanaHerramientas extends javax.swing.JPanel {
         goma = true;
         aux = formaElegida;
         
-        //Icono que tendrá el ratón
-        ImageIcon imagenRaton= new ImageIcon();
     }//GEN-LAST:event_botonGomaActionPerformed
 
     private void jSlider1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSlider1MouseReleased

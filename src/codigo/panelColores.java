@@ -2,6 +2,8 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
+ *
+ *Autores: Ramiro Diego, Sofia Rico, Javier de la Llave
  */
 package codigo;
 
@@ -477,9 +479,9 @@ public class panelColores extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void colorNegroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_colorNegroMousePressed
-        JLabel s = (JLabel) evt.getSource();
-        colorSeleccionado = s.getBackground();        
-        labelColorSeleccionado.setBackground(colorSeleccionado);
+        JLabel s = (JLabel) evt.getSource();//Obtenemos el color de la etiqueta
+        colorSeleccionado = s.getBackground(); //Lo defiimos como color seleccionado       
+        labelColorSeleccionado.setBackground(colorSeleccionado);//Lo ponemos en la etiqueta que nos muestra el color que estamos usando
     }//GEN-LAST:event_colorNegroMousePressed
 
     private void colorBlancoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_colorBlancoMousePressed
@@ -645,6 +647,7 @@ public class panelColores extends javax.swing.JPanel {
         labelColorSeleccionado.setBackground(colorSeleccionado);
     }//GEN-LAST:event_colorAzulSemiclaroMousePressed
 
+    //Al pulsar se intercambia el color del pincel por el de borrado
     private void labelBorrarSeleccionadoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBorrarSeleccionadoMouseReleased
 
         //Guardor el color de la etiqueta de borrado
@@ -661,10 +664,9 @@ public class panelColores extends javax.swing.JPanel {
         //Le pongo el color de la goma a pintar
         colorSeleccionado = aux;
         
-       
-
     }//GEN-LAST:event_labelBorrarSeleccionadoMouseReleased
 
+    //Al pulsar se intercambia el color del pincel por el de borrado
     private void labelColorSeleccionadoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelColorSeleccionadoMouseReleased
         //Guardor el color de la etiqueta de borrado
         aux = colorSeleccionadoGoma;

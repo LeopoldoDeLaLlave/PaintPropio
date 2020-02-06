@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Crea una estrella/espiral en pantalla
  */
 package codigo.formas;
 
@@ -9,7 +7,7 @@ import java.awt.Color;
 
 /**
  *
- * @author Javier
+ * Autores: Ramiro Diego, Sofía Rico, Javier de la Llave
  */
 public class Estrella extends Forma {
     

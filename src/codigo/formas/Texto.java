@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Nos permite introducir texto al piunchar en pantalla
  */
 package codigo.formas;
 
@@ -18,7 +16,7 @@ import java.text.AttributedCharacterIterator;
 
 /**
  *
- * @author Javier
+ * Autores: Ramiro Diego, Sofía Rico, Javier de la Llave
  */
 public class Texto extends Graphics{
 

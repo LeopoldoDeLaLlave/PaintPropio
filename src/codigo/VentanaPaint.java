@@ -2,6 +2,8 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
+ *
+ *Autores: Ramiro Diego, Sofia Rico, Javier de la Llave
  */
 package codigo;
 
@@ -40,20 +42,16 @@ import java.util.*;
  */
 public class VentanaPaint extends javax.swing.JFrame {
 
-    //Este buffer acelera la memoria para que podamos dibujar
-    BufferedImage buffer, buffer2, buffer3 = null;
+    //Sobre estos buffers dibujaremos
+    BufferedImage buffer, buffer2 = null;
 
-    //Permite dibujar, una para el buffer y otra para el panel
-    Graphics2D bufferGraphics, bufferGraphics2, bufferGraphics3, jPanelGraphics = null;
+    //Nos permite dibujar
+    Graphics2D bufferGraphics, bufferGraphics2, jPanelGraphics = null;
 
     //Guardaremos los buffers cada vez que haya cambio
-    //ArrayList<BufferedImage> bufferLista = new ArrayList<BufferedImage>();
     ArrayList<BufferedImage> buffer2Lista = new ArrayList<BufferedImage>();
-    
-    ArrayList<Graphics2D> g2Lista = new ArrayList<Graphics2D>();
-    
-    int maxNum = 0;
 
+    //Para relacionarnos con las otras clases
     Forma miForma = null;
     Pincel miPincel = null;
     TiraLineas miTiraLineas = null;
@@ -63,15 +61,15 @@ public class VentanaPaint extends javax.swing.JFrame {
     Limpiar miLimpiar = null;
     Pluma miPluma = null;
     VentanaHerramientas misHerramientas = null;
-    //Aquí guardaremos el texto para poner en pantalla
-    String texto = "";
+    /////////////////////////////////////////////
 
-    //Este indice nos indica que buffer se muestra en pantalla
-    int indiceLista = 0;
+    String texto = ""; //Aquí guardaremos el texto para poner en pantalla
 
-    int tamanoFuente = 16; //La fuente será 16 por defecto
+    int indiceLista = 0; //Este indice nos indica que buffer se muestra en pantalla
 
-    String fuente = "Arial"; //La fuente, por defecto será Arial
+    int tamanoFuente = 16; //Tamaño de la fuente de la herramienta escribir, será 16 por defecto
+
+    String fuente = "Arial"; //La fuente de la herramienta escribir, por defecto será Arial
 
     /**
      * Creates new form VentanaPaint
@@ -79,18 +77,17 @@ public class VentanaPaint extends javax.swing.JFrame {
     public VentanaPaint() {
         initComponents();
         inicializaBuffers();
+
         jDialogColor.setSize(640, 450);
 
         //Ponemos icono a la paleta de colores
         ImageIcon miImagen14 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/palette.png"))
                 .getImage()
                 .getScaledInstance(53, 53, Image.SCALE_DEFAULT)));
-
         botonPaleta.setOpaque(false);
         botonPaleta.setContentAreaFilled(false);
         botonPaleta.setBorderPainted(false);
-        //Cargo la imagen en el jButton 
-        botonPaleta.setIcon(miImagen14);
+        botonPaleta.setIcon(miImagen14);//Cargo la imagen en el jButton 
 
         //Icono y titulo de mierda que se le ha ocurrido a Ramiro
         setTitle("Paint Star Wars");
@@ -98,49 +95,33 @@ public class VentanaPaint extends javax.swing.JFrame {
 
     }
 
-    public void personalizarCursor(ImageIcon img) {
-        Cursor cursor;
-
-        Toolkit t = Toolkit.getDefaultToolkit();
-        cursor = t.createCustomCursor(img.getImage(), new Point(1, 1), "Cursor");
-        setCursor(cursor);
-
-    }
-
     //Enlaza buffergraphics con jpanel
     private void inicializaBuffers() {
 
-        //Creo una imagen del mismo ancho y alto que el Jpanel       
+        //Creo dos imágenes del mismo ancho y alto que el Jpanel       
         buffer = (BufferedImage) jPanel1.createImage(jPanel1.getWidth(), jPanel1.getHeight());
         buffer2 = (BufferedImage) jPanel1.createImage(jPanel1.getWidth(), jPanel1.getHeight());
-        buffer3 = (BufferedImage) jPanel1.createImage(jPanel1.getWidth(), jPanel1.getHeight());
 
-        //Creo una imagen modicable
+        //Creo dos imágenes modicable
         bufferGraphics = buffer.createGraphics();
         bufferGraphics2 = buffer2.createGraphics();
- 
 
-        //Inicializo el buffer para que se pinte de blanco entero
+        //Pintamos los buffers de blanco enteros
         bufferGraphics.setColor(Color.white);
         bufferGraphics.fillRect(0, 0, jPanel1.getWidth(), jPanel1.getHeight());
-
-
         bufferGraphics2.setColor(Color.white);
         bufferGraphics2.fillRect(0, 0, jPanel1.getWidth(), jPanel1.getHeight());
- 
 
         //Enlazamos el jPanel1 con el jPanelGraphics
         jPanelGraphics = (Graphics2D) jPanel1.getGraphics();
-        
 
-        //Añado el primer buffer a la lista
+        //Añado el primer buffer a la lista de buffers
         BufferedImage clone2 = new BufferedImage(buffer2.getWidth(),
-        buffer2.getHeight(), buffer2.getType());
+                buffer2.getHeight(), buffer2.getType());
         Graphics2D g2d = clone2.createGraphics();
         g2d.drawImage(buffer2, 0, 0, null);
         g2d.dispose();
         buffer2Lista.add(clone2);
-
 
     }
 
@@ -427,16 +408,16 @@ public class VentanaPaint extends javax.swing.JFrame {
     //Este metodo actua cuando arrastras el raton habiendo pulsado y hasta que sueltas
     private void jPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseDragged
 
-        //Esto es lo que se dibuja sobre la pantalla
-        bufferGraphics.drawImage(buffer2, 0, 0, null);
+        bufferGraphics.drawImage(buffer2, 0, 0, null);//Dibujamos sobre la pantalla
 
         switch (ventanaHerramientas1.formaElegida) {
 
-            //HAce una lina de un punto a otro
+            //Hace una línea de un punto a otro
             case 0:
                 miTiraLineas.dibujate(bufferGraphics, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
                 break;
-            //HAce un triángulo
+
+            //Hace un triángulo
             case 3:
                 miForma.dibujate(bufferGraphics, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
                 break;
@@ -445,10 +426,12 @@ public class VentanaPaint extends javax.swing.JFrame {
             case 4:
                 miForma.dibujate(bufferGraphics, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
                 break;
+
             //Hace un pentágono
             case 5:
                 miForma.dibujate(bufferGraphics, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
                 break;
+
             //Hace un círculo
             case 1:
                 miForma.dibujate(bufferGraphics, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
@@ -465,9 +448,13 @@ public class VentanaPaint extends javax.swing.JFrame {
                 miSpray.dibujate(bufferGraphics2, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
                 break;
 
-            //Dibuja un rectangulo libre
+            //Dibuja un rectángulo libre
             case 15:
                 miRectanguloLibre.dibujate(bufferGraphics, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea, ventanaHerramientas1.relleno);
+                break;
+             
+            //Escribir
+            case 16:
                 break;
 
             //Efecto pluma
@@ -475,38 +462,55 @@ public class VentanaPaint extends javax.swing.JFrame {
                 miPluma.dibujate(bufferGraphics2, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
                 break;
 
-            //Hace la estrella
+            //Hace una estrella 
             case 256:
                 miForma.dibujate(bufferGraphics, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
                 break;
+             
+            //Por defecto pondremos el lápiza, aunque en teoría es imposible llegar a este caso 
+            //(pero en teoría hasta el comunismo fuciona)
+            default:
+                ventanaHerramientas1.formaElegida = 11;
+                miPincel.dibujate(bufferGraphics2, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
+                break;
+                
 
         }
+
         //Refresca la pantalla y pone lo pintado
         repaint(0, 0, 1, 1);
     }//GEN-LAST:event_jPanel1MouseDragged
 
+    
+    //Este método actúa en el momento exacto en el que se pulsa el ratón
     private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
         switch (ventanaHerramientas1.formaElegida) {
 
+            //Tiralíneas
             case 0:
                 miTiraLineas = new TiraLineas(evt.getX(), evt.getY(), panelColores.colorSeleccionado);
                 miTiraLineas.dibujate(bufferGraphics, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
                 break;
+                
+                //Triángulo libre
             case 3:
                 miForma = new Triangulo(evt.getX(), evt.getY(), 4, panelColores.colorSeleccionado, ventanaHerramientas1.relleno);
                 miForma.dibujate(bufferGraphics, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
                 break;
 
+                //Cuadrado
             case 4:
                 miForma = new Cuadrado(evt.getX(), evt.getY(), 4, panelColores.colorSeleccionado, ventanaHerramientas1.relleno);
                 miForma.dibujate(bufferGraphics, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
                 break;
 
+                //Pentágono
             case 5:
                 miForma = new Pentagono(evt.getX(), evt.getY(), 5, panelColores.colorSeleccionado, ventanaHerramientas1.relleno);
                 miForma.dibujate(bufferGraphics, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
                 break;
 
+                //Círculo
             case 1:
                 miForma = new Circulo2(evt.getX(), evt.getY(), 100, panelColores.colorSeleccionado, ventanaHerramientas1.relleno);
                 miForma.dibujate(bufferGraphics, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
@@ -514,31 +518,29 @@ public class VentanaPaint extends javax.swing.JFrame {
 
             //Este caso sirve de pincel y de goma
             case 11:
-                if (ventanaHerramientas1.goma) {
+                if (ventanaHerramientas1.goma) {//Si la goma está activa utiliza el cor de la goma
                     miPincel = new Pincel(evt.getX(), evt.getY(), panelColores.colorSeleccionadoGoma);
-                } else {
+                } else {//Si no, utiliza el color del pincel
                     miPincel = new Pincel(evt.getX(), evt.getY(), panelColores.colorSeleccionado);
                 }
-
                 break;
-
+                
+                //Spray
             case 12:
-
-                miSpray = new Spray(evt.getX(), evt.getY(), panelColores.colorSeleccionado);
-                miSpray.dibujate(bufferGraphics, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
+                //No necesitamos hacer nada al clicar porque se crea mientras se arrastra
                 break;
 
             //Pipeta
             case 14:
-                Color c = new Color(buffer2.getRGB(evt.getX(), evt.getY()), true);
-                panelColores.colorSeleccionado = c;
-                panelColores.labelColorSeleccionado.setBackground(c);
-                //Volvemos a la herramienta anterior
-                ventanaHerramientas1.formaElegida = ventanaHerramientas1.aux;
+                Color c = new Color(buffer2.getRGB(evt.getX(), evt.getY()), true);//Obtenemos el color sobre el que hemos pulsado
+                panelColores.colorSeleccionado = c;//Lo ponemos como color para pintar.
+                panelColores.labelColorSeleccionado.setBackground(c);//Lo reflejamos en la etiqueta               
+                ventanaHerramientas1.formaElegida = ventanaHerramientas1.aux;//Volvemos a la herramienta anterior
                 break;
+             
+            //Rectángulo libre
             case 15:
                 miRectanguloLibre = new RectanguloLibre(evt.getX(), evt.getY(), panelColores.colorSeleccionado);
-                //miRectanguloLibre.dibujate(bufferGraphics, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea, ventanaHerramientas1.relleno);
                 break;
 
             //Escribir
@@ -547,48 +549,56 @@ public class VentanaPaint extends javax.swing.JFrame {
                 miTexto.escribete(bufferGraphics2, texto, tamanoFuente, fuente);
                 bufferGraphics.drawImage(buffer2, 0, 0, null);
                 repaint(0, 0, 1, 1);
-                texto = "";
+                texto = "";//Dejamos el texto en blanco
                 break;
-
+                
+            //Pluma
             case 17:
-
                 miPluma = new Pluma(evt.getX(), evt.getY(), panelColores.colorSeleccionado);
                 miPluma.dibujate(bufferGraphics2, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
                 break;
+                
+            //Estrella   
             case 256:
                 miForma = new Estrella(evt.getX(), evt.getY(), panelColores.colorSeleccionado, ventanaHerramientas1.relleno);
                 miForma.dibujate(bufferGraphics, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
                 break;
+             
+            //Por defecto pone el lápiz
+            default:
+                miPincel = new Pincel(evt.getX(), evt.getY(), panelColores.colorSeleccionado);
+                ventanaHerramientas1.formaElegida = 12;
         }
     }//GEN-LAST:event_jPanel1MousePressed
 
+    //Actua en el momento en el que se suelta el ratón
     private void jPanel1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseReleased
 
-        if ((ventanaHerramientas1.formaElegida > 0 && ventanaHerramientas1.formaElegida <= 5) || ventanaHerramientas1.formaElegida == 256) {//Para que no dé error cuando no pintemos formas
+        if ((ventanaHerramientas1.formaElegida > 0 && ventanaHerramientas1.formaElegida <= 5) || ventanaHerramientas1.formaElegida == 256) {//Para las formas
             miForma.dibujate(bufferGraphics2, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
-        } else if (ventanaHerramientas1.formaElegida == 0) {
+        } else if (ventanaHerramientas1.formaElegida == 0) {//Para el tiralíneas
             miTiraLineas.dibujate(bufferGraphics2, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
-        } else if (ventanaHerramientas1.formaElegida == 15) {
+        } else if (ventanaHerramientas1.formaElegida == 15) {//Para el rectángulo libre
             miRectanguloLibre.dibujate(bufferGraphics2, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea, ventanaHerramientas1.relleno);
         }
-
-        //Siempre que no sea la pipeta, al soltar guardará un buffer en la lista
-        if (ventanaHerramientas1.formaElegida != 14) {
-            indiceLista++;
+        
+        if (ventanaHerramientas1.formaElegida != 14) {//Siempre que no sea la pipeta, al soltar guardará un buffer en la lista
             
+            indiceLista++;//Adelantomos el indice para saber en que posición de la lista estamos
+
             //Clonamos la imagen para guardarla en la lista de buffers
             BufferedImage clone = new BufferedImage(buffer2.getWidth(),
-            buffer2.getHeight(), buffer2.getType());
+                    buffer2.getHeight(), buffer2.getType());
             Graphics2D g2d = clone.createGraphics();
             g2d.drawImage(buffer2, 0, 0, null);
             g2d.dispose();
-            
-            if(buffer2Lista.size() <= indiceLista){//Si en la posición en la que vamos a añadir el buffer no ha habido otro antes
+
+            if (buffer2Lista.size() <= indiceLista) {//Si en la posición en la que vamos a añadir el buffer no ha habido otro antes
                 buffer2Lista.add(clone);
-            }else{
+            } else {//Si hay que sustituir un buffer por otro
                 buffer2Lista.set(indiceLista, clone);
             }
-            
+
         }
 
     }//GEN-LAST:event_jPanel1MouseReleased
@@ -599,20 +609,24 @@ public class VentanaPaint extends javax.swing.JFrame {
         jLabelCoordenadas.setText(evt.getX() + " , " + evt.getY());
     }//GEN-LAST:event_jPanel1MouseMoved
 
+    //Deja visible el cuadro para seleccionar colores
     private void botonPaletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPaletaActionPerformed
         jDialogColor.setVisible(true);
     }//GEN-LAST:event_botonPaletaActionPerformed
 
+    //Cierra la ventana de elegir color y lo deja listo para escribir
     private void aceptarColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarColorActionPerformed
         jDialogColor.setVisible(false);
         panelColores.colorSeleccionado = jColorChooser1.getColor();
         panelColores.labelColorSeleccionado.setBackground(jColorChooser1.getColor());
     }//GEN-LAST:event_aceptarColorActionPerformed
 
+    //Cierra la ventana de elegir color sin ningún cambio en el color
     private void cancelarColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarColorActionPerformed
         jDialogColor.setVisible(false);
     }//GEN-LAST:event_cancelarColorActionPerformed
 
+    //Guarda la imagen que se ve en pantalla
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         int seleccion = jFileChooser1.showSaveDialog(this);
         if (seleccion == JFileChooser.APPROVE_OPTION) {
@@ -630,6 +644,7 @@ public class VentanaPaint extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    //Abre en pantalla una imagen que viene de fuera
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         jFileChooser1.setFileFilter(new FileNameExtensionFilter("archivos de imagen jpg", "jpg"));
         jFileChooser1.setFileFilter(new FileNameExtensionFilter("archivos de imagen png", "png"));
@@ -653,8 +668,9 @@ public class VentanaPaint extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
 
+    //Tras pulsar este botón, al pulsar en la pantalla se escribirá el texto que se había escrito
     private void botonescribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonescribirActionPerformed
-        if (!jTextFieldTamanoFuente.getText().isEmpty()) {
+        if (!jTextFieldTamanoFuente.getText().isEmpty()) {//Evitamos error si no hay ningún texto en el jtextfield
             tamanoFuente = Integer.parseInt(jTextFieldTamanoFuente.getText());
             //Para que el tamaño de la fuente esté entre 3 y 120
             if (tamanoFuente < 3) {
@@ -679,7 +695,7 @@ public class VentanaPaint extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-    //Botón deshacer, no funciona de momento
+    //Botón deshacer, vuelve un paso hacia atrás
     private void jMenuItemUndoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemUndoActionPerformed
 
         //Si el indice es mayor que 0 retrocedemos una posición en la lista
@@ -687,28 +703,27 @@ public class VentanaPaint extends javax.swing.JFrame {
             indiceLista--;
         }
 
-        /////////
+
         bufferGraphics.drawImage(buffer2Lista.get(indiceLista), 0, 0, null);//Esta linea es capaz de dibujar seguro
-        ///////////
         bufferGraphics2.drawImage(buffer2Lista.get(indiceLista), 0, 0, null);
 
         repaint(0, 0, 1, 1);
 
     }//GEN-LAST:event_jMenuItemUndoActionPerformed
 
+    //Cambia la fuente que utilizamos al escribir
     private void jComboBoxFuenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxFuenteActionPerformed
         fuente = (String) jComboBoxFuente.getSelectedItem();
     }//GEN-LAST:event_jComboBoxFuenteActionPerformed
 
+    //Botón rehacer, va un paso hacia delante
     private void jMenuItemRehacerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRehacerActionPerformed
         //Si el indice es mayor que 0 retrocedemos una posición en la lista
-        if (indiceLista < buffer2Lista.size()-1) {
+        if (indiceLista < buffer2Lista.size() - 1) {
             indiceLista++;
         }
 
-        /////////
         bufferGraphics.drawImage(buffer2Lista.get(indiceLista), 0, 0, null);//Esta linea es capaz de dibujar seguro
-        ///////////
         bufferGraphics2.drawImage(buffer2Lista.get(indiceLista), 0, 0, null);
 
         repaint(0, 0, 1, 1);

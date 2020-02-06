@@ -12,7 +12,7 @@ import java.awt.Stroke;
 
 /**
  *
- * @author Javier
+ * Autores: Ramiro Diego, Sofía Rico, Javier de la Llave
  */
 public class Pincel extends Polygon{
     

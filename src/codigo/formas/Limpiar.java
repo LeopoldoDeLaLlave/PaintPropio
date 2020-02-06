@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Deja la pantalla en blanco
  */
 package codigo.formas;
 
@@ -13,7 +11,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Javier
+ * Autores: Ramiro Diego, Sofía Rico, Javier de la Llave
  */
 public class Limpiar extends Polygon {
 
