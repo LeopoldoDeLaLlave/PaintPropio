@@ -185,6 +185,7 @@ public class VentanaPaint extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItemUndo = new javax.swing.JMenuItem();
+        jMenuItemRehacer = new javax.swing.JMenuItem();
 
         aceptarColor.setText("Aceptar");
         aceptarColor.addActionListener(new java.awt.event.ActionListener() {
@@ -333,6 +334,14 @@ public class VentanaPaint extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItemUndo);
+
+        jMenuItemRehacer.setText("Rehacer");
+        jMenuItemRehacer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemRehacerActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItemRehacer);
 
         jMenuBar1.add(jMenu1);
 
@@ -691,6 +700,20 @@ public class VentanaPaint extends javax.swing.JFrame {
         fuente = (String) jComboBoxFuente.getSelectedItem();
     }//GEN-LAST:event_jComboBoxFuenteActionPerformed
 
+    private void jMenuItemRehacerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRehacerActionPerformed
+        //Si el indice es mayor que 0 retrocedemos una posición en la lista
+        if (indiceLista < buffer2Lista.size()-1) {
+            indiceLista++;
+        }
+
+        /////////
+        bufferGraphics.drawImage(buffer2Lista.get(indiceLista), 0, 0, null);//Esta linea es capaz de dibujar seguro
+        ///////////
+        bufferGraphics2.drawImage(buffer2Lista.get(indiceLista), 0, 0, null);
+
+        repaint(0, 0, 1, 1);
+    }//GEN-LAST:event_jMenuItemRehacerActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -745,6 +768,7 @@ public class VentanaPaint extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItemRehacer;
     private javax.swing.JMenuItem jMenuItemUndo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextFieldTamanoFuente;
