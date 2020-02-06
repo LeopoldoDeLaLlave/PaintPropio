@@ -51,6 +51,8 @@ public class VentanaPaint extends javax.swing.JFrame {
     ArrayList<BufferedImage> buffer2Lista = new ArrayList<BufferedImage>();
     
     ArrayList<Graphics2D> g2Lista = new ArrayList<Graphics2D>();
+    
+    int maxNum = 0;
 
     Forma miForma = null;
     Pincel miPincel = null;
@@ -565,12 +567,18 @@ public class VentanaPaint extends javax.swing.JFrame {
         if (ventanaHerramientas1.formaElegida != 14) {
             indiceLista++;
             
+            //Clonamos la imagen para guardarla en la lista de buffers
             BufferedImage clone = new BufferedImage(buffer2.getWidth(),
             buffer2.getHeight(), buffer2.getType());
             Graphics2D g2d = clone.createGraphics();
             g2d.drawImage(buffer2, 0, 0, null);
             g2d.dispose();
-            buffer2Lista.add(clone);
+            
+            if(buffer2Lista.size() <= indiceLista){//Si en la posición en la que vamos a añadir el buffer no ha habido otro antes
+                buffer2Lista.add(clone);
+            }else{
+                buffer2Lista.set(indiceLista, clone);
+            }
             
         }
 
@@ -606,7 +614,7 @@ public class VentanaPaint extends javax.swing.JFrame {
             if (extension.equalsIgnoreCase("jpg") || extension.equalsIgnoreCase("png")) {
 
                 try {
-                    ImageIO.write(buffer2Lista.get(3), "png", fichero);
+                    ImageIO.write(buffer, "png", fichero);
                 } catch (IOException e) {
                 }
             }
