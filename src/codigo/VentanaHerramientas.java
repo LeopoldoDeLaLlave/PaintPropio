@@ -20,6 +20,9 @@ public class VentanaHerramientas extends javax.swing.JPanel {
     int aux = formaElegida;//Guardaremos la herramienta para, tras usar la pipeta, volver a la herramienta
     boolean goma = false; //Nos indica si estamos usando la goma
     int grosorLinea = 1;
+    
+
+    VentanaPaint miPaint = null;
 
     /**
      * Creates new form VentanaHerramientas
@@ -322,9 +325,9 @@ public class VentanaHerramientas extends javax.swing.JPanel {
                     .addComponent(botonTriangulo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonCuadrado, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonPentagono, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botonEstrella, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botonEstrella, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonPentagono, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botonCirculo2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -368,12 +371,22 @@ public class VentanaHerramientas extends javax.swing.JPanel {
         formaElegida = 11;
         goma = false;
         aux = formaElegida;
+        
+        ImageIcon imagenRaton1 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/pinceli.png"))
+                .getImage()
+                .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+        miPaint.personalizarCursor(imagenRaton1);
+        
+        
     }//GEN-LAST:event_botonPincelActionPerformed
 
     private void botonGomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGomaActionPerformed
         formaElegida = 11;
         goma = true;
         aux = formaElegida;
+        
+        //Icono que tendrá el ratón
+        ImageIcon imagenRaton= new ImageIcon();
     }//GEN-LAST:event_botonGomaActionPerformed
 
     private void jSlider1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSlider1MouseReleased
