@@ -565,11 +565,13 @@ public class VentanaPaint extends javax.swing.JFrame {
                 } else {//Si no, utiliza el color del pincel
                     miPincel = new Pincel(evt.getX(), evt.getY(), panelColores.colorSeleccionado);
                 }
+                miPincel.dibujate(bufferGraphics, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
                 break;
 
             //Spray
             case 12:
-                //No necesitamos hacer nada al clicar porque se crea mientras se arrastra
+                miSpray = new Spray(evt.getX(), evt.getY(), panelColores.colorSeleccionado);
+                miSpray.dibujate(bufferGraphics, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
                 break;
 
             //Pipeta
@@ -621,7 +623,7 @@ public class VentanaPaint extends javax.swing.JFrame {
         } else if (ventanaHerramientas1.formaElegida == 0) {//Para el tiralíneas
             miTiraLineas.dibujate(bufferGraphics2, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
         } else if (ventanaHerramientas1.formaElegida == 15) {//Para el rectángulo libre
-            miRectanguloLibre.dibujate(bufferGraphics2, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea, ventanaHerramientas1.relleno);
+            miRectanguloLibre.dibujate(bufferGraphics, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea, ventanaHerramientas1.relleno);
         }
 
         if (ventanaHerramientas1.formaElegida != 14) {//Siempre que no sea la pipeta, al soltar guardará un buffer en la lista

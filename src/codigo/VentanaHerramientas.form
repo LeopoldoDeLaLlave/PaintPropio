@@ -30,7 +30,6 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="checkRelleno" pref="116" max="32767" attributes="0"/>
-                  <Component id="botonCirculo2" min="-2" pref="53" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="botonSpray" min="-2" pref="53" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -41,27 +40,25 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="botonGoma" min="-2" pref="53" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="botonPipeta" min="-2" pref="53" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="botonCubo" min="-2" pref="53" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="botonTiraLineas" min="-2" pref="53" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="botonRectanguloLibre" min="-2" pref="53" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="botonTriangulo" min="-2" pref="53" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="botonCuadrado" min="-2" pref="53" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="botonPentagono" min="-2" pref="53" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="botonEstrella" min="-2" pref="53" max="-2" attributes="0"/>
+                      <Component id="botonCirculo2" min="-2" pref="53" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jSlider1" alignment="0" pref="0" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="botonPipeta" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
+                          <Component id="botonTiraLineas" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
+                          <Component id="botonTriangulo" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="botonRectanguloLibre" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
+                          <Component id="botonCuadrado" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
+                          <Component id="botonEstrella" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -81,28 +78,28 @@
                   <Component id="botonPluma" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="botonCubo" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
-                  <Component id="botonPipeta" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="botonTiraLineas" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
-                  <Component id="botonRectanguloLibre" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="botonTriangulo" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
-                  <Component id="botonCuadrado" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="botonPipeta" min="-2" pref="53" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="botonTiraLineas" min="-2" pref="53" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="botonTriangulo" min="-2" pref="53" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="botonRectanguloLibre" min="-2" pref="53" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="botonCuadrado" min="-2" pref="53" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="botonEstrella" min="-2" pref="53" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="botonEstrella" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
                   <Component id="botonPentagono" min="-2" pref="53" max="-2" attributes="0"/>
+                  <Component id="botonCirculo2" min="-2" pref="53" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="botonCirculo2" min="-2" pref="53" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
               <Component id="checkRelleno" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jSlider1" min="-2" max="-2" attributes="0"/>
@@ -191,11 +188,6 @@
     <Component class="javax.swing.JButton" name="botonPluma">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonPlumaActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="botonCubo">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonCuboActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
