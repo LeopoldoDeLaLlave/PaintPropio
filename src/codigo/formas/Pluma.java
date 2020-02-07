@@ -21,9 +21,9 @@ public class Pluma extends Polygon {
 
     /**
      * 
-     * @param posX
-     * @param posY
-     * @param _color 
+     * @param posX: posición x en la que se pinta.
+     * @param posY: posición y en la que se pinta.
+     * @param _color :Color del que se pinta
      */
     public Pluma(int posX, int posY, Color _color) {
         x = posX;
@@ -33,16 +33,17 @@ public class Pluma extends Polygon {
 
     /**
      * 
-     * @param g2
-     * @param posX
-     * @param posY
-     * @param grosor 
+     * @param g2: Graphics2D que se usa.
+     * @param posX: posición x en la que se pinta.
+     * @param posY: posición y en la que se pinta.
+     * @param grosor :Grosor del que se pinta
      */
     public void dibujate(Graphics2D g2, int posX, int posY, int grosor) {
         g2.setColor(color);
         g2.setStroke(new BasicStroke(1));
         g2.setColor(color);
 
+        //Pinta 5 rayas
         for (int i = 0; i < 10; i++) {
             g2.drawLine(x + i, y + i, posX + i, posY + i);
         }

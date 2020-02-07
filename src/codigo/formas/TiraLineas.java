@@ -22,7 +22,7 @@ public class TiraLineas extends Polygon {
      * 
      * @param _posX posicion x de la que parte
      * @param _posY posicion t de la que parte
-     * @param _lados tamaño lados
+     * @param _color : color del que hacemos la línea
      */
     public TiraLineas(int posX, int posY, Color _color ) {
         x = posX;
@@ -32,7 +32,7 @@ public class TiraLineas extends Polygon {
     
     /**
      * 
-     * @param g2 Graphics2D
+     * @param g2 Graphics2D que usamos
      * @param posX posición x de la que parte
      * @param posY posición y de la que parte
      * @param grosor grosor de la línea

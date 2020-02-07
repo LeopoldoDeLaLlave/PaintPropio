@@ -81,6 +81,7 @@ public class VentanaPaint extends javax.swing.JFrame {
         initComponents();
         inicializaBuffers();
 
+        //Damos medida y posición a los cuadros de diálogo
         jDialogColor.setSize(640, 450);
         jDialogWarning.setSize(487, 205);
         jDialogWarning.setLocation(400, 200);
@@ -100,6 +101,8 @@ public class VentanaPaint extends javax.swing.JFrame {
 
     }
 
+    //Con este método cambiamos la imágen del cursor mientras está en la zona
+    //de dibujo en función de la herramienta que usemos
     public void ponerCursor(String img_curs) {
 
         jPanel1.setCursor(Toolkit.getDefaultToolkit().createCustomCursor(
@@ -646,7 +649,7 @@ public class VentanaPaint extends javax.swing.JFrame {
     //Decide el icono del ratón
     private void jPanel1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseMoved
 
-        jLabelCoordenadas.setText(evt.getX() + " , " + evt.getY());//ponemos las coordenadas
+        jLabelCoordenadas.setText(evt.getX() + " , " + evt.getY());//ponemos las coordenadas en el label
 
         //Elegimos el icono
         if (ventanaHerramientas1.formaElegida == 11 && !ventanaHerramientas1.goma) {//Si es el lápiz
@@ -662,7 +665,7 @@ public class VentanaPaint extends javax.swing.JFrame {
         }else if (ventanaHerramientas1.formaElegida == 16 && !escrito) {//Si es el texto el que está seleccionado y aún no está escrito
             ponerCursor("/Imagenes/txt.png");
         } else {//Si es cualquier otro
-            Cursor cursor = new Cursor(Cursor.CROSSHAIR_CURSOR); // HAND CURSOR
+            Cursor cursor = new Cursor(Cursor.CROSSHAIR_CURSOR); // CROSS CURSOR
             jPanel1.setCursor(cursor);
         }
     }//GEN-LAST:event_jPanel1MouseMoved
@@ -672,7 +675,7 @@ public class VentanaPaint extends javax.swing.JFrame {
         jDialogColor.setVisible(true);
     }//GEN-LAST:event_botonPaletaActionPerformed
 
-    //Cierra la ventana de elegir color y lo deja listo para escribir
+    //Cierra la ventana de elegir color y lo deja listo para pintar
     private void aceptarColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarColorActionPerformed
         jDialogColor.setVisible(false);
         panelColores.colorSeleccionado = jColorChooser1.getColor();

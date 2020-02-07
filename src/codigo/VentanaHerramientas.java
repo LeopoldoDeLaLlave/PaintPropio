@@ -23,7 +23,7 @@ public class VentanaHerramientas extends javax.swing.JPanel {
     public boolean relleno = false;//Indica si la forma está rellena o no
     public int formaElegida = 11;//indica la herramienta que usaremos, por defecto es el lápiz
     boolean goma = false; //Nos indica si estamos usando la goma
-    int grosorLinea = 1;
+    int grosorLinea = 1;//Grosor de los trazos que hagamos
 
     VentanaPaint miPaint = null;
 
@@ -417,7 +417,7 @@ public class VentanaHerramientas extends javax.swing.JPanel {
     }//GEN-LAST:event_botonPlumaActionPerformed
 
     private void botonCuboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCuboActionPerformed
-        formaElegida = 18;
+        formaElegida = formaElegida;
     }//GEN-LAST:event_botonCuboActionPerformed
 
 

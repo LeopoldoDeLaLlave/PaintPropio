@@ -24,8 +24,8 @@ public class RectanguloLibre extends Polygon {
     /**
      * 
      * @param _posX posicion x de la que parte
-     * @param _posY posicion t de la que parte
-     * @param _lados tamaño lados
+     * @param _posY posicion y de la que parte
+     * @param _color: color del que se pinta
 
      */
     public RectanguloLibre(int posX, int posY, Color _color) {
@@ -36,12 +36,13 @@ public class RectanguloLibre extends Polygon {
 
     /**
      * 
-     * @param g2
-     * @param posX
-     * @param posY
-     * @param grosor
-     * @param _relleno 
+     * @param g2: Graphics2D que se usa.
+     * @param _posX posicion x de la que parte
+     * @param _posY posicion y de la que parte
+     * @param grosor: grosor de las líneas
+     * @param _relleno: variable booleana que nos indica si está relleno o no
      */
+    //Crea las 4v líneas por separado
     public void dibujate(Graphics2D g2, int posX, int posY, int grosor, boolean _relleno) {
         g2.setColor(color);
         g2.setStroke(new BasicStroke(grosor));

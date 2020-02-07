@@ -26,7 +26,7 @@ public class Spray extends Polygon {
      * 
      * @param _posX posicion x de la que parte
      * @param _posY posicion y de la que parte
-     * @param _lados tamaño lados
+     * @param _color: color del que se pinta.
      */
     public Spray(int posX, int posY, Color _color) {
         x = posX;
@@ -36,16 +36,16 @@ public class Spray extends Polygon {
 
     /**
      * 
-     * @param g2 Grphics2D
-     * @param posX
-     * @param posY
+     * @param g2 Grphics2D que se usa
+     * @param _posX posicion x de la que parte
+     * @param _posY posicion y de la que parte
      * @param grosor: grosor de las líneas
      */
     public void dibujate(Graphics2D g2, int posX, int posY, int grosor) {
         g2.setColor(color);
         g2.setStroke(new BasicStroke(1));       
         grosor += 7;//Para que se aprecie
-        for (int i = 0; i < grosor; i++) {
+        for (int i = 0; i < grosor; i++) {//En la superficie de un rectángulo pinta píxeles aleatorios
             for (int j = 0; j < grosor; j++) {
                 valorRandom = random.nextInt(5);//Uno de cada 5
                 if (valorRandom == 3) {

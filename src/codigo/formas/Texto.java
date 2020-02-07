@@ -206,8 +206,8 @@ public class Texto extends Graphics{
     /**
      * 
      * @param _posX posicion x de la que parte
-     * @param _posY posicion t de la que parte
-     * @param _lados tamaño lados
+     * @param _posY posicion y de la que parte
+     * @param _color : color del texto
      */
     public Texto(int posX, int posY, Color _color) {
         x = posX;
@@ -217,7 +217,7 @@ public class Texto extends Graphics{
     
     /**
      * 
-     * @param g2 Graphics2D
+     * @param g2 Graphics2D que usamos
      * @param str texto que escribiremo
      * @param tFuente tamaño de la fuente
      * @param _fuente  tipo de fuente
