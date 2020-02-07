@@ -7,7 +7,10 @@
  */
 package codigo;
 
+import java.awt.Cursor;
 import java.awt.Image;
+import java.awt.Point;
+import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
@@ -19,10 +22,8 @@ public class VentanaHerramientas extends javax.swing.JPanel {
 
     public boolean relleno = false;//Indica si la forma está rellena o no
     public int formaElegida = 11;//indica la herramienta que usaremos, por defecto es el lápiz
-    int aux = formaElegida;//Guardaremos la herramienta en uso para, tras usar la pipeta, volver a esa herramienta
     boolean goma = false; //Nos indica si estamos usando la goma
     int grosorLinea = 1;
-    
 
     VentanaPaint miPaint = null;
 
@@ -33,139 +34,130 @@ public class VentanaHerramientas extends javax.swing.JPanel {
         initComponents();
         poneIconos();
     }
-    
+
     //Cargo la imagen en el jButton 
-    public void afinaIcono(ImageIcon _miImagen, JButton _boton ){      
+    public void afinaIcono(ImageIcon _miImagen, JButton _boton) {
         _boton.setIcon(_miImagen);
     }
-    
+
     //Pone los iconos
     private void poneIconos() {
-        
+
         //Boton pincel
         ImageIcon miImagen = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/picel3.png"))
                 .getImage()
                 .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
-        
+
         setBounds(10, 10, 10, 10);
 
         afinaIcono(miImagen, botonPincel);
 
-        
         //BotonGoma
         ImageIcon miImagen2 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/goma6.png"))
                 .getImage()
                 .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
-        
+
         setBounds(10, 10, 10, 10);
 
         afinaIcono(miImagen2, botonGoma);
-        
-        
+
         //BotonSpray
         ImageIcon miImagen3 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/spray2.png"))
                 .getImage()
                 .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
-        
+
         setBounds(10, 10, 10, 10);
-        
+
         afinaIcono(miImagen3, botonSpray);
-        
+
         //BotonPluma
         ImageIcon miImagen4 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/pluma2.png"))
                 .getImage()
                 .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
-        
+
         setBounds(10, 10, 10, 10);
-        
+
         afinaIcono(miImagen4, botonPluma);
-        
+
         //BotonPipeta
         ImageIcon miImagen5 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/pipeta.png"))
                 .getImage()
                 .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
-        
+
         setBounds(10, 10, 10, 10);
-        
+
         afinaIcono(miImagen5, botonPipeta);
-        
-        
+
         //BotonCubo
         ImageIcon miImagen6 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/cubo2.png"))
                 .getImage()
                 .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
-        
+
         setBounds(10, 10, 10, 10);
-        
+
         afinaIcono(miImagen6, botonCubo);
-        
-        
+
         //BotonTiraLineas
         ImageIcon miImagen7 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/linea.png"))
                 .getImage()
                 .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
-        
+
         setBounds(10, 10, 10, 10);
-        
+
         afinaIcono(miImagen7, botonTiraLineas);
-       
-        
+
         //BotonRectanguloLibre
         ImageIcon miImagen8 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/rectangulo_1.png"))
                 .getImage()
                 .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
-        
+
         setBounds(10, 10, 10, 10);
-        
+
         afinaIcono(miImagen8, botonRectanguloLibre);
-        
-        
+
         //Boton Triángulos
         ImageIcon miImagen9 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/triangle.png"))
                 .getImage()
                 .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
-        
+
         setBounds(10, 10, 10, 10);
-        
+
         afinaIcono(miImagen9, botonTriangulo);
-        
-        
+
         //Boton cuadrado
         ImageIcon miImagen10 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/cuadrado.png"))
                 .getImage()
                 .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
-        
+
         setBounds(10, 10, 10, 10);
-        
+
         afinaIcono(miImagen10, botonCuadrado);
-        
-        
+
         //Boton pentágono
         ImageIcon miImagen11 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/pentagon.png"))
                 .getImage()
                 .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
-        
+
         setBounds(10, 10, 10, 10);
-        
+
         afinaIcono(miImagen11, botonPentagono);
-        
-        
+
         //Boton estrella
         ImageIcon miImagen12 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/estrella.png"))
                 .getImage()
                 .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
-        
+
         setBounds(10, 10, 10, 10);
-        
+
         afinaIcono(miImagen12, botonEstrella);
-        
+
         //Boton circulo
         ImageIcon miImagen13 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/circle.png"))
                 .getImage()
                 .getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
-        
+
         setBounds(10, 10, 10, 10);
-        
+
         afinaIcono(miImagen13, botonCirculo2);
     }
 
@@ -367,22 +359,18 @@ public class VentanaHerramientas extends javax.swing.JPanel {
 
     private void botonCuadradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCuadradoActionPerformed
         formaElegida = 4;
-        aux = formaElegida;
     }//GEN-LAST:event_botonCuadradoActionPerformed
 
     private void botonPentagonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPentagonoActionPerformed
         formaElegida = 5;
-        aux = formaElegida;
     }//GEN-LAST:event_botonPentagonoActionPerformed
 
     private void botonEstrellaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEstrellaActionPerformed
         formaElegida = 256;
-        aux = formaElegida;
     }//GEN-LAST:event_botonEstrellaActionPerformed
 
     private void botonCirculo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCirculo2ActionPerformed
         formaElegida = 1;
-        aux = formaElegida;
     }//GEN-LAST:event_botonCirculo2ActionPerformed
 
     private void checkRellenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkRellenoActionPerformed
@@ -391,20 +379,17 @@ public class VentanaHerramientas extends javax.swing.JPanel {
 
     private void botonTrianguloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonTrianguloActionPerformed
         formaElegida = 3;
-        aux = formaElegida;
     }//GEN-LAST:event_botonTrianguloActionPerformed
 
     private void botonPincelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPincelActionPerformed
         formaElegida = 11;
         goma = false;
-        aux = formaElegida;
     }//GEN-LAST:event_botonPincelActionPerformed
 
     private void botonGomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGomaActionPerformed
         formaElegida = 11;
         goma = true;
-        aux = formaElegida;
-        
+
     }//GEN-LAST:event_botonGomaActionPerformed
 
     private void jSlider1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSlider1MouseReleased
@@ -413,12 +398,10 @@ public class VentanaHerramientas extends javax.swing.JPanel {
 
     private void botonTiraLineasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonTiraLineasActionPerformed
         formaElegida = 0;
-        aux = formaElegida;
     }//GEN-LAST:event_botonTiraLineasActionPerformed
 
     private void botonSprayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSprayActionPerformed
         formaElegida = 12;
-        aux = formaElegida;
     }//GEN-LAST:event_botonSprayActionPerformed
 
     private void botonPipetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPipetaActionPerformed
@@ -427,17 +410,14 @@ public class VentanaHerramientas extends javax.swing.JPanel {
 
     private void botonRectanguloLibreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRectanguloLibreActionPerformed
         formaElegida = 15;
-        aux = formaElegida;
     }//GEN-LAST:event_botonRectanguloLibreActionPerformed
 
     private void botonPlumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPlumaActionPerformed
         formaElegida = 17;
-        aux = formaElegida;
     }//GEN-LAST:event_botonPlumaActionPerformed
 
     private void botonCuboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCuboActionPerformed
         formaElegida = 18;
-        aux = formaElegida;
     }//GEN-LAST:event_botonCuboActionPerformed
 
 

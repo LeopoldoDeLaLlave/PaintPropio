@@ -21,12 +21,27 @@ public class RectanguloLibre extends Polygon {
     //Color del que se pintará la línea
     public Color color;
 
+    /**
+     * 
+     * @param _posX posicion x de la que parte
+     * @param _posY posicion t de la que parte
+     * @param _lados tamaño lados
+
+     */
     public RectanguloLibre(int posX, int posY, Color _color) {
         x = posX;
         y = posY;
         color = _color;
     }
 
+    /**
+     * 
+     * @param g2
+     * @param posX
+     * @param posY
+     * @param grosor
+     * @param _relleno 
+     */
     public void dibujate(Graphics2D g2, int posX, int posY, int grosor, boolean _relleno) {
         g2.setColor(color);
         g2.setStroke(new BasicStroke(grosor));

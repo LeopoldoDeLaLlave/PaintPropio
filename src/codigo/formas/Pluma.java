@@ -19,12 +19,25 @@ public class Pluma extends Polygon {
     //Color del que se pintará la línea
     public Color color;
 
+    /**
+     * 
+     * @param posX
+     * @param posY
+     * @param _color 
+     */
     public Pluma(int posX, int posY, Color _color) {
         x = posX;
         y = posY;
         color = _color;
     }
 
+    /**
+     * 
+     * @param g2
+     * @param posX
+     * @param posY
+     * @param grosor 
+     */
     public void dibujate(Graphics2D g2, int posX, int posY, int grosor) {
         g2.setColor(color);
         g2.setStroke(new BasicStroke(1));

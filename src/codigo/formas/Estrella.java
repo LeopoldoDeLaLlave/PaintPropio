@@ -10,7 +10,13 @@ import java.awt.Color;
  * Autores: Ramiro Diego, Sofía Rico, Javier de la Llave
  */
 public class Estrella extends Forma {
-    
+    /**
+     * 
+     * @param _posX
+     * @param _posY
+     * @param _color
+     * @param _relleno 
+     */
     public Estrella(int _posX, int _posY, Color _color, boolean _relleno) {
         //inicializa el constructor del triángulo correctamente para que guarde 3 lados
         super(_posX, _posY, 256, _color, _relleno);

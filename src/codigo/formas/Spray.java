@@ -22,12 +22,25 @@ public class Spray extends Polygon {
     Random random = new Random();//Sorteamos que píxeles se rellenan y cuales no
     int valorRandom; //Guardaremos el valor random
 
+    /**
+     * 
+     * @param _posX posicion x de la que parte
+     * @param _posY posicion y de la que parte
+     * @param _lados tamaño lados
+     */
     public Spray(int posX, int posY, Color _color) {
         x = posX;
         y = posY;
         color = _color;
     }
 
+    /**
+     * 
+     * @param g2 Grphics2D
+     * @param posX
+     * @param posY
+     * @param grosor: grosor de las líneas
+     */
     public void dibujate(Graphics2D g2, int posX, int posY, int grosor) {
         g2.setColor(color);
         g2.setStroke(new BasicStroke(1));       

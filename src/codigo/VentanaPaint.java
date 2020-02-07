@@ -21,7 +21,6 @@ import codigo.formas.Texto;
 import codigo.formas.TiraLineas;
 import codigo.formas.Triangulo;
 import java.awt.Color;
-import java.awt.Cursor;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -35,6 +34,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.util.*;
+import javax.swing.JFrame;
 
 /**
  *
@@ -79,6 +79,8 @@ public class VentanaPaint extends javax.swing.JFrame {
         inicializaBuffers();
 
         jDialogColor.setSize(640, 450);
+        jDialogWarning.setSize(487, 205);
+        jDialogWarning.setLocation(400, 200);
 
         //Ponemos icono a la paleta de colores
         ImageIcon miImagen14 = new ImageIcon((new ImageIcon(getClass().getResource("/Imagenes/palette.png"))
@@ -92,6 +94,18 @@ public class VentanaPaint extends javax.swing.JFrame {
         //Icono y titulo de mierda que se le ha ocurrido a Ramiro
         setTitle("Paint Star Wars");
         setIconImage(new ImageIcon(getClass().getResource("/Imagenes/sw.png")).getImage());
+
+        //Ponemos este por defecto
+        /*jPanel1.setCursor(Toolkit.getDefaultToolkit().createCustomCursor(
+                    new ImageIcon(getClass().getResource("/Imagenes/pinceli.png")).getImage(),
+                    new Point(0,0),"custom cursor"));*/
+    }
+
+    public void ponerCursor(String img_curs) {
+
+        jPanel1.setCursor(Toolkit.getDefaultToolkit().createCustomCursor(
+                new ImageIcon(getClass().getResource(img_curs)).getImage(),
+                new Point(0, 0), "custom cursor"));
 
     }
 
@@ -148,6 +162,8 @@ public class VentanaPaint extends javax.swing.JFrame {
         cancelarColor = new javax.swing.JButton();
         jDialogGuardar = new javax.swing.JDialog();
         jFileChooser1 = new javax.swing.JFileChooser();
+        jDialogWarning = new javax.swing.JDialog();
+        jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         panelColores = new codigo.panelColores();
         ventanaHerramientas1 = new codigo.VentanaHerramientas();
@@ -221,6 +237,28 @@ public class VentanaPaint extends javax.swing.JFrame {
             .addGroup(jDialogGuardarLayout.createSequentialGroup()
                 .addComponent(jFileChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 154, Short.MAX_VALUE))
+        );
+
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Hay que introducir un número en el tamaño de la fuente");
+        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        javax.swing.GroupLayout jDialogWarningLayout = new javax.swing.GroupLayout(jDialogWarning.getContentPane());
+        jDialogWarning.getContentPane().setLayout(jDialogWarningLayout);
+        jDialogWarningLayout.setHorizontalGroup(
+            jDialogWarningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialogWarningLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jDialogWarningLayout.setVerticalGroup(
+            jDialogWarningLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialogWarningLayout.createSequentialGroup()
+                .addContainerGap(57, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -448,11 +486,15 @@ public class VentanaPaint extends javax.swing.JFrame {
                 miSpray.dibujate(bufferGraphics2, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
                 break;
 
+            //Pipeta 
+            case 14:
+                break;
+
             //Dibuja un rectángulo libre
             case 15:
                 miRectanguloLibre.dibujate(bufferGraphics, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea, ventanaHerramientas1.relleno);
                 break;
-             
+
             //Escribir
             case 16:
                 break;
@@ -466,14 +508,13 @@ public class VentanaPaint extends javax.swing.JFrame {
             case 256:
                 miForma.dibujate(bufferGraphics, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
                 break;
-             
+
             //Por defecto pondremos el lápiza, aunque en teoría es imposible llegar a este caso 
             //(pero en teoría hasta el comunismo fuciona)
             default:
                 ventanaHerramientas1.formaElegida = 11;
                 miPincel.dibujate(bufferGraphics2, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
                 break;
-                
 
         }
 
@@ -481,7 +522,6 @@ public class VentanaPaint extends javax.swing.JFrame {
         repaint(0, 0, 1, 1);
     }//GEN-LAST:event_jPanel1MouseDragged
 
-    
     //Este método actúa en el momento exacto en el que se pulsa el ratón
     private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
         switch (ventanaHerramientas1.formaElegida) {
@@ -491,26 +531,26 @@ public class VentanaPaint extends javax.swing.JFrame {
                 miTiraLineas = new TiraLineas(evt.getX(), evt.getY(), panelColores.colorSeleccionado);
                 miTiraLineas.dibujate(bufferGraphics, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
                 break;
-                
-                //Triángulo libre
+
+            //Triángulo libre
             case 3:
                 miForma = new Triangulo(evt.getX(), evt.getY(), 4, panelColores.colorSeleccionado, ventanaHerramientas1.relleno);
                 miForma.dibujate(bufferGraphics, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
                 break;
 
-                //Cuadrado
+            //Cuadrado
             case 4:
                 miForma = new Cuadrado(evt.getX(), evt.getY(), 4, panelColores.colorSeleccionado, ventanaHerramientas1.relleno);
                 miForma.dibujate(bufferGraphics, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
                 break;
 
-                //Pentágono
+            //Pentágono
             case 5:
                 miForma = new Pentagono(evt.getX(), evt.getY(), 5, panelColores.colorSeleccionado, ventanaHerramientas1.relleno);
                 miForma.dibujate(bufferGraphics, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
                 break;
 
-                //Círculo
+            //Círculo
             case 1:
                 miForma = new Circulo2(evt.getX(), evt.getY(), 100, panelColores.colorSeleccionado, ventanaHerramientas1.relleno);
                 miForma.dibujate(bufferGraphics, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
@@ -524,8 +564,8 @@ public class VentanaPaint extends javax.swing.JFrame {
                     miPincel = new Pincel(evt.getX(), evt.getY(), panelColores.colorSeleccionado);
                 }
                 break;
-                
-                //Spray
+
+            //Spray
             case 12:
                 //No necesitamos hacer nada al clicar porque se crea mientras se arrastra
                 break;
@@ -535,9 +575,8 @@ public class VentanaPaint extends javax.swing.JFrame {
                 Color c = new Color(buffer2.getRGB(evt.getX(), evt.getY()), true);//Obtenemos el color sobre el que hemos pulsado
                 panelColores.colorSeleccionado = c;//Lo ponemos como color para pintar.
                 panelColores.labelColorSeleccionado.setBackground(c);//Lo reflejamos en la etiqueta               
-                ventanaHerramientas1.formaElegida = ventanaHerramientas1.aux;//Volvemos a la herramienta anterior
                 break;
-             
+
             //Rectángulo libre
             case 15:
                 miRectanguloLibre = new RectanguloLibre(evt.getX(), evt.getY(), panelColores.colorSeleccionado);
@@ -551,19 +590,19 @@ public class VentanaPaint extends javax.swing.JFrame {
                 repaint(0, 0, 1, 1);
                 texto = "";//Dejamos el texto en blanco
                 break;
-                
+
             //Pluma
             case 17:
                 miPluma = new Pluma(evt.getX(), evt.getY(), panelColores.colorSeleccionado);
                 miPluma.dibujate(bufferGraphics2, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
                 break;
-                
+
             //Estrella   
             case 256:
                 miForma = new Estrella(evt.getX(), evt.getY(), panelColores.colorSeleccionado, ventanaHerramientas1.relleno);
                 miForma.dibujate(bufferGraphics, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
                 break;
-             
+
             //Por defecto pone el lápiz
             default:
                 miPincel = new Pincel(evt.getX(), evt.getY(), panelColores.colorSeleccionado);
@@ -581,9 +620,9 @@ public class VentanaPaint extends javax.swing.JFrame {
         } else if (ventanaHerramientas1.formaElegida == 15) {//Para el rectángulo libre
             miRectanguloLibre.dibujate(bufferGraphics2, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea, ventanaHerramientas1.relleno);
         }
-        
+
         if (ventanaHerramientas1.formaElegida != 14) {//Siempre que no sea la pipeta, al soltar guardará un buffer en la lista
-            
+
             indiceLista++;//Adelantomos el indice para saber en que posición de la lista estamos
 
             //Clonamos la imagen para guardarla en la lista de buffers
@@ -604,9 +643,16 @@ public class VentanaPaint extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel1MouseReleased
 
     //Señala las coordenadas en las que están el ratón
+    //Decide el icono del ratón
     private void jPanel1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseMoved
 
         jLabelCoordenadas.setText(evt.getX() + " , " + evt.getY());
+
+        if (ventanaHerramientas1.formaElegida == 11 && !ventanaHerramientas1.goma) {//Si es el lápiz
+            ponerCursor("/Imagenes/pinceli.png");
+        } else if (ventanaHerramientas1.formaElegida == 11 && ventanaHerramientas1.goma) {//Si es la goma
+            ponerCursor("/Imagenes/gomai2.png");
+        }
     }//GEN-LAST:event_jPanel1MouseMoved
 
     //Deja visible el cuadro para seleccionar colores
@@ -667,21 +713,28 @@ public class VentanaPaint extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-
     //Tras pulsar este botón, al pulsar en la pantalla se escribirá el texto que se había escrito
     private void botonescribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonescribirActionPerformed
-        if (!jTextFieldTamanoFuente.getText().isEmpty()) {//Evitamos error si no hay ningún texto en el jtextfield
-            tamanoFuente = Integer.parseInt(jTextFieldTamanoFuente.getText());
-            //Para que el tamaño de la fuente esté entre 3 y 120
-            if (tamanoFuente < 3) {
-                tamanoFuente = 3;
+
+        //Ponemos un try por si el usuario introduce algo que no es un número
+        try {
+
+            if (!jTextFieldTamanoFuente.getText().isEmpty()) {//Evitamos error si no hay ningún texto en el jtextfield
+                tamanoFuente = Integer.parseInt(jTextFieldTamanoFuente.getText());
+                //Para que el tamaño de la fuente esté entre 3 y 120
+                if (tamanoFuente < 3) {
+                    tamanoFuente = 3;
+                }
+                if (tamanoFuente > 120) {
+                    tamanoFuente = 120;
+                }
             }
-            if (tamanoFuente > 120) {
-                tamanoFuente = 120;
-            }
+            texto = jTextFieldtext.getText();
+            ventanaHerramientas1.formaElegida = 16;
+        } catch (Exception e) {
+            jDialogWarning.setVisible(true);
         }
-        texto = jTextFieldtext.getText();
-        ventanaHerramientas1.formaElegida = 16;
+
     }//GEN-LAST:event_botonescribirActionPerformed
 
     //Botón para dejar pantalla blanca
@@ -703,8 +756,7 @@ public class VentanaPaint extends javax.swing.JFrame {
             indiceLista--;
         }
 
-
-        bufferGraphics.drawImage(buffer2Lista.get(indiceLista), 0, 0, null);//Esta linea es capaz de dibujar seguro
+        bufferGraphics.drawImage(buffer2Lista.get(indiceLista), 0, 0, null);
         bufferGraphics2.drawImage(buffer2Lista.get(indiceLista), 0, 0, null);
 
         repaint(0, 0, 1, 1);
@@ -723,7 +775,7 @@ public class VentanaPaint extends javax.swing.JFrame {
             indiceLista++;
         }
 
-        bufferGraphics.drawImage(buffer2Lista.get(indiceLista), 0, 0, null);//Esta linea es capaz de dibujar seguro
+        bufferGraphics.drawImage(buffer2Lista.get(indiceLista), 0, 0, null);
         bufferGraphics2.drawImage(buffer2Lista.get(indiceLista), 0, 0, null);
 
         repaint(0, 0, 1, 1);
@@ -773,10 +825,12 @@ public class VentanaPaint extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBoxFuente;
     private javax.swing.JDialog jDialogColor;
     private javax.swing.JDialog jDialogGuardar;
+    private javax.swing.JDialog jDialogWarning;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelCoordenadas;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;

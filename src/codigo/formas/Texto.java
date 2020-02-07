@@ -203,11 +203,25 @@ public class Texto extends Graphics{
     public int x, y;
     //Color del que se pintará el String
     public Color color;
+    /**
+     * 
+     * @param _posX posicion x de la que parte
+     * @param _posY posicion t de la que parte
+     * @param _lados tamaño lados
+     */
     public Texto(int posX, int posY, Color _color) {
         x = posX;
         y = posY;
         color = _color;
     }
+    
+    /**
+     * 
+     * @param g2 Graphics2D
+     * @param str texto que escribiremo
+     * @param tFuente tamaño de la fuente
+     * @param _fuente  tipo de fuente
+     */
     public void escribete(Graphics2D g2, String str, int tFuente, String _fuente) {
         Font myFont = new Font(_fuente, Font.BOLD, tFuente);
         g2.setFont(myFont);
