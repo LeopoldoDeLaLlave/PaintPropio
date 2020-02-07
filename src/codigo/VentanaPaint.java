@@ -21,6 +21,7 @@ import codigo.formas.Texto;
 import codigo.formas.TiraLineas;
 import codigo.formas.Triangulo;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -95,10 +96,6 @@ public class VentanaPaint extends javax.swing.JFrame {
         setTitle("Paint Star Wars");
         setIconImage(new ImageIcon(getClass().getResource("/Imagenes/sw.png")).getImage());
 
-        //Ponemos este por defecto
-        /*jPanel1.setCursor(Toolkit.getDefaultToolkit().createCustomCursor(
-                    new ImageIcon(getClass().getResource("/Imagenes/pinceli.png")).getImage(),
-                    new Point(0,0),"custom cursor"));*/
     }
 
     public void ponerCursor(String img_curs) {
@@ -646,12 +643,22 @@ public class VentanaPaint extends javax.swing.JFrame {
     //Decide el icono del ratón
     private void jPanel1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseMoved
 
-        jLabelCoordenadas.setText(evt.getX() + " , " + evt.getY());
+        jLabelCoordenadas.setText(evt.getX() + " , " + evt.getY());//ponemos las coordenadas
 
+        //Elegimos el icono
         if (ventanaHerramientas1.formaElegida == 11 && !ventanaHerramientas1.goma) {//Si es el lápiz
             ponerCursor("/Imagenes/pinceli.png");
         } else if (ventanaHerramientas1.formaElegida == 11 && ventanaHerramientas1.goma) {//Si es la goma
             ponerCursor("/Imagenes/gomai2.png");
+        } else if (ventanaHerramientas1.formaElegida == 12) {//Si es el spary
+            ponerCursor("/Imagenes/spray33.jpg");
+        } else if (ventanaHerramientas1.formaElegida == 17) {//Si es el spary
+            ponerCursor("/Imagenes/pluma3.png");
+        } else if (ventanaHerramientas1.formaElegida == 14) {//Si es el spary
+            ponerCursor("/Imagenes/pipeta8.png");
+        } else {
+            Cursor cursor = new Cursor(Cursor.CROSSHAIR_CURSOR); // HAND CURSOR
+            jPanel1.setCursor(cursor);
         }
     }//GEN-LAST:event_jPanel1MouseMoved
 
