@@ -71,6 +71,8 @@ public class VentanaPaint extends javax.swing.JFrame {
     int tamanoFuente = 16; //Tamaño de la fuente de la herramienta escribir, será 16 por defecto
 
     String fuente = "Arial"; //La fuente de la herramienta escribir, por defecto será Arial
+    
+    boolean escrito = false; //Nos dirá si ya se ha escrito el texto o no
 
     /**
      * Creates new form VentanaPaint
@@ -585,7 +587,8 @@ public class VentanaPaint extends javax.swing.JFrame {
                 miTexto.escribete(bufferGraphics2, texto, tamanoFuente, fuente);
                 bufferGraphics.drawImage(buffer2, 0, 0, null);
                 repaint(0, 0, 1, 1);
-                texto = "";//Dejamos el texto en blanco
+                texto = "";//Dejamos el texto en blanco               
+                escrito = true;//Avisamos de que el texto ya ha sido escrito
                 break;
 
             //Pluma
@@ -647,16 +650,18 @@ public class VentanaPaint extends javax.swing.JFrame {
 
         //Elegimos el icono
         if (ventanaHerramientas1.formaElegida == 11 && !ventanaHerramientas1.goma) {//Si es el lápiz
-            ponerCursor("/Imagenes/pinceli.png");
+            ponerCursor("/Imagenes/pilcel99.png");
         } else if (ventanaHerramientas1.formaElegida == 11 && ventanaHerramientas1.goma) {//Si es la goma
-            ponerCursor("/Imagenes/gomai2.png");
-        } else if (ventanaHerramientas1.formaElegida == 12) {//Si es el spary
-            ponerCursor("/Imagenes/spray33.jpg");
-        } else if (ventanaHerramientas1.formaElegida == 17) {//Si es el spary
-            ponerCursor("/Imagenes/pluma3.png");
-        } else if (ventanaHerramientas1.formaElegida == 14) {//Si es el spary
-            ponerCursor("/Imagenes/pipeta8.png");
-        } else {
+            ponerCursor("/Imagenes/goma50.png");
+        } else if (ventanaHerramientas1.formaElegida == 12) {//Si es el spray
+            ponerCursor("/Imagenes/spray23.png");
+        } else if (ventanaHerramientas1.formaElegida == 17) {//Si es la pluma
+            ponerCursor("/Imagenes/pluma10.png");
+        } else if (ventanaHerramientas1.formaElegida == 14) {//Si es la pipeta
+            ponerCursor("/Imagenes/pipeta89.png");
+        }else if (ventanaHerramientas1.formaElegida == 16 && !escrito) {//Si es el texto el que está seleccionado y aún no está escrito
+            ponerCursor("/Imagenes/txt.png");
+        } else {//Si es cualquier otro
             Cursor cursor = new Cursor(Cursor.CROSSHAIR_CURSOR); // HAND CURSOR
             jPanel1.setCursor(cursor);
         }
@@ -738,6 +743,7 @@ public class VentanaPaint extends javax.swing.JFrame {
             }
             texto = jTextFieldtext.getText();
             ventanaHerramientas1.formaElegida = 16;
+            escrito = false;//El nuevo texto no ha sido escrito aún
         } catch (Exception e) {
             jDialogWarning.setVisible(true);
         }
