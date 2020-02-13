@@ -623,7 +623,7 @@ public class VentanaPaint extends javax.swing.JFrame {
         } else if (ventanaHerramientas1.formaElegida == 0) {//Para el tiralíneas
             miTiraLineas.dibujate(bufferGraphics2, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea);
         } else if (ventanaHerramientas1.formaElegida == 15) {//Para el rectángulo libre
-            miRectanguloLibre.dibujate(bufferGraphics, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea, ventanaHerramientas1.relleno);
+            //miRectanguloLibre.dibujate(bufferGraphics, evt.getX(), evt.getY(), ventanaHerramientas1.grosorLinea, ventanaHerramientas1.relleno);
         }
 
         if (ventanaHerramientas1.formaElegida != 14) {//Siempre que no sea la pipeta, al soltar guardará un buffer en la lista
